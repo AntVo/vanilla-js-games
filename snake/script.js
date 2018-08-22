@@ -73,7 +73,7 @@ function checkCollisions(){
 	var y = snake[0].y;
 	var collisionDetected = false;
 
-	if ((x <= 0 || x >= WIDTH || y <= 0 || y >= HEIGHT)){
+	if ((x < 0 || x > WIDTH || y < 0 || y > HEIGHT)){
 			collisionDetected = true;
 	}
 	snake.slice(1, snake.length).forEach((node) => {
@@ -81,12 +81,14 @@ function checkCollisions(){
 			collisionDetected = true;
 		}
 	})
-
 	return collisionDetected;
-
 }
 
 function updateGame(){
+	// Check for Collisions
+	// Move the Snake
+	// Draw Snake on Canvas
+	// Draw Food
 	context.fillStyle = 'rgb(180, 185, 200)';
   context.strokeStyle='black';
 	context.fillRect(0, 0, WIDTH, HEIGHT);
@@ -99,7 +101,4 @@ function updateGame(){
 	drawSnake();
 	drawFood();
 
-	// Check for Collission
-	// Move the Snake
-	// Draw Snake on Canvas
 }
